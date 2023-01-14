@@ -16,7 +16,7 @@ import { replaceCamelWithSpaces } from "./App";
 */
 
 /* 
-  Configure linter in on a project level
+  Configure linter in on a project level (we can configure prettier rules inside this file also)
 
   - create .vscode folder in top level
   - crate settings.json file inside that folder
