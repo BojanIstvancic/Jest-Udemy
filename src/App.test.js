@@ -3,6 +3,28 @@ import App from "./App";
 import { logRoles } from "@testing-library/react";
 import { replaceCamelWithSpaces } from "./App";
 
+/*
+  npm install eslint-plugin-testing-library eslint-plugin-jest-dom - add linter
+
+  move linter to a separate file
+    - remove slint config from package.json
+    - .eslintrc.json - create file
+      - configure the file
+      - plugins - installed extensions that we want to use
+      - extends - rules that we want to enforce
+      - we can configure these rules if we want
+*/
+
+/* 
+  Configure linter in on a project level
+
+  - create .vscode folder in top level
+  - crate settings.json file inside that folder
+  - add rules in this - settings.json - file
+
+  Configure linter on global: https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations
+*/
+
 /* React Testing Library 
     - renders component into virtual dom
     - searches virtual dom
@@ -143,7 +165,11 @@ test("disabled button has gray background and reverts to blue", () => {
   expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
 });
 
-// Unit Testing functions
+/*
+ Unit Testing functions 
+  - covering all edge cases
+  - determining what caused functional test to fail
+ */
 
 describe("spaces before camel-case capital letters", () => {
   // describe - combine tests, used for grouping tests
