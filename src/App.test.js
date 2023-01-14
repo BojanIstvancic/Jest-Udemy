@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 import { logRoles } from "@testing-library/react";
+import { replaceCamelWithSpaces } from "./App";
 
 /* React Testing Library 
     - renders component into virtual dom
@@ -140,4 +141,24 @@ test("disabled button has gray background and reverts to blue", () => {
   fireEvent.click(checkbox);
   // enable button
   expect(colorButton).toHaveStyle({ backgroundColor: "blue" });
+});
+
+// Unit Testing functions
+
+describe("spaces before camel-case capital letters", () => {
+  // describe - combine tests, used for grouping tests
+  // we need to export the function that we want to test
+
+  test("Works for no inner capital letters", () => {
+    expect(replaceCamelWithSpaces("Red")).toBe("Red");
+    // trigger the function with 'red' argument and expect result to be 'red'
+  });
+
+  test("Works for one inner capital letter", () => {
+    expect(replaceCamelWithSpaces("MidnightBlue")).toBe("Midnight Blue");
+  });
+
+  test("Works for multiple inner capital letters", () => {
+    expect(replaceCamelWithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
+  });
 });
